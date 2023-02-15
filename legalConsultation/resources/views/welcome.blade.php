@@ -9,5 +9,4 @@
 {{--                @include('posts.partials.item',["post"=>$post])--}}
 {{--            @endforeach--}}
         </div>
-    </div>
 @endsection

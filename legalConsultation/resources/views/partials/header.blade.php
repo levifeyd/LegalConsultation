@@ -14,6 +14,6 @@
                 border-bottom: 1px solid black;
             }
         </style>
-        <p></p>
+                <a href="{{ route('account') }}" class="text-indigo-600 hover:text-indigo-900">Мой кабинет</a>
     </div>
 </nav>
