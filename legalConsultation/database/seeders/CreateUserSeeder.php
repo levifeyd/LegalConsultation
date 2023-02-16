@@ -3,8 +3,11 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Spatie\Permission\Models\Role;
+
 
 class CreateUserSeeder extends Seeder
 {
@@ -15,10 +18,18 @@ class CreateUserSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'name' => 'Artem',
-            'email' => 'artem@mail.ru',
+        $user = User::query()->create([
+            'name' => 'Polina',
+            'email' => 'Polina@mail.ru',
             'password' => bcrypt('qweasdzxc'),
         ]);
+
+        Role::create([
+            'name'=>'user',
+            'created_at'=>Carbon::now(),
+            'updated_at'=>Carbon::now(),
+        ]);
+
+        $user->assignRole('user');
     }
 }
