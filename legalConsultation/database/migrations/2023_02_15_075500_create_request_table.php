@@ -22,6 +22,7 @@ class CreateRequestTable extends Migration
             $table->string('answer');
             $table->foreignId("user_id")->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('lawyer_id');
+            $table->string('comment');
             $table->timestamps();
         });
     }

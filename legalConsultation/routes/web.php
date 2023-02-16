@@ -22,4 +22,6 @@ Route::middleware("guest")->group(function () {
 
 Route::middleware("auth")->group(function () {
     Route::get('/logout',[\App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
+    Route::get('/create_new_request', [\App\Http\Controllers\RequestController::class, 'create'])
+        ->name('create_new_request');
 });

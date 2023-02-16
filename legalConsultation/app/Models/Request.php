@@ -16,5 +16,6 @@ class Request extends Model {
         'answer',
         'user_id ',
         'lawyer_id',
+        'comment'
     ];
 }
