@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RequestController extends Controller
 {
@@ -17,11 +18,18 @@ class RequestController extends Controller
         return view('requests.create_request');
     }
     public function store(Request $request) {
-//        $request->validate([
-//            "name"=>'required|string|max:255',
-//            "text"=>'required|string|',
-//        ]);
-        \App\Models\Request::query()->create($request->all());
+        $request->validate([
+            "category"=>'required',
+            "text"=>'required',
+            "photo"=>'required',
+        ]);
+
+        $input = $request->all();
+        $input['status']='new request';
+        $input['user_id'] = Auth::user()->id;
+//        dd($input);
+
+        \App\Models\Request::query()->create($input);
         return redirect()->back()->with('status','Post added!');
     }
 }

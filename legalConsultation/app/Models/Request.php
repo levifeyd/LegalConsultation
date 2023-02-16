@@ -13,9 +13,6 @@ class Request extends Model {
         'photo',
         'category',
         'status',
-        'answer',
-        'user_id ',
-        'lawyer_id',
-        'comment'
+        'user_id',
     ];
 }

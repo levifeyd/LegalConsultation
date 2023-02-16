@@ -15,12 +15,12 @@ class CreateRequestTable extends Migration
     {
         Schema::create('request', function (Blueprint $table) {
             $table->id();
+            $table->string('category');
             $table->text('text');
             $table->string('photo');
-            $table->string('category');
             $table->string('status');
-            $table->string('answer');
             $table->foreignId("user_id")->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->string('answer');
             $table->string('lawyer_id');
             $table->string('comment');
             $table->timestamps();
