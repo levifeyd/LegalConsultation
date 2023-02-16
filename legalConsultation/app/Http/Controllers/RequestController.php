@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class RequestController extends Controller
-{
+class RequestController extends Controller {
     public function index()
     {
         $posts = \App\Models\Request::query()->orderBy("created_at", "desc")->get();

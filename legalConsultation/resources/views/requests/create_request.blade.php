@@ -14,10 +14,15 @@
                 @endif
                     <form enctype="multipart/form-data" method="POST" action="{{ route("add_new_request") }}">
                         @csrf
-                        <div class="form-group">
-                            <label for="exampleInputEmail">Категория заявки</label>
-                            <input name="category" type="text" class="form-control" id="exampleInputEmail">
-                        </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect2">Категория заявки</label>
+                                <select name="category" class="form-control" id="exampleFormControlSelect2">
+                                    <option value="Земельные споры">Земельные споры</option>
+                                    <option value="Семейные споры">Семейные споры</option>
+                                    <option value="Трудовые споры">Трудовые споры</option>
+                                    <option value="Споры с ГИБДД">Споры с ГИБДД</option>
+                                </select>
+                            </div>
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">Опишите вашу проблему</label>
                             <textarea name="text" class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>

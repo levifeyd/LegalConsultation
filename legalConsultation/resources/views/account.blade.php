@@ -8,15 +8,21 @@
             <div class="row">
                 <div class="col-md-12">
                 <a href="{{ route('create_new_request') }}" class="btn btn-success mb-4">Добавить новую заявку</a>
+                    @foreach($requests as $request)
                     <div class="card mb-4">
-                        <h5 class="card-header">Название заявки</h5>
+                        <h5 class="card-header">Заявка № {{$request->id}}</h5>
+                        <h5 class="card-header">Категория: {{$request->category}}</h5>
+                        <p>{{$request->text}}</p>
+                        <p>Дата создания : {{$request->created_at}}</p>
                         <div class="card-body">
                             <form method="post" style="display: inline-block">
-                                <input type="text" class="form-control">
-                                <button type="submit" class="btn btn-primary mt-3">Оставить коментарий к заявке</button>
+                                <a href="#" class="btn btn-primary mt-4">Оставить коментарий к заявке</a>
+                                <input type="text" class="form-control mt-4" placeholder="Комметерий к заявке">
+                                <a href="#" class="btn btn-success mt-4">Ответить на заявку</a>
                             </form>
                         </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>

@@ -9,6 +9,9 @@ class IndexController extends Controller {
         return view('welcome');
     }
     public function account() {
-        return view('account');
+        $requests = \App\Models\Request::query()->orderBy("created_at", "desc")->get();
+        return view('account')->with([
+            'requests'=>$requests,
+        ]);
     }
 }
