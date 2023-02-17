@@ -24,22 +24,18 @@ class RequestController extends Controller {
         ]);
 
         $input = $request->all();
-        $input['status']='new request';
+        $input['status'] ='new request';
         $input['user_id'] = Auth::user()->id;
-//        dd($input);
 
         \App\Models\Request::query()->create($input);
         return redirect()->back()->with('status','Post added!');
     }
-    public function getAnswer(Request $request, $id) {
+    public function update($id, Request $request) {
         $request->validate([
             'text'=>'required'
         ]);
-        $request = \App\Models\Request::query()->findOrFail($id);
         $input = $request->all();
-        $input['answer'] = $request->text;
-        dd($input);
-
+        $req = \App\Models\Request::query()->where('id', $id)->update(['answer' => $input['text']]);
         return redirect()->back()->with('status','Answer added!');
     }
 }

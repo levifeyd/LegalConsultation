@@ -12,8 +12,12 @@
                     @endif
                     @foreach($requests as $request)
                         <div class="card mb-4">
-                            <h5 class="card-header">Заявка № {{$request->id}}</h5>
-                            <h5 class="card-header">Категория: {{$request->category}}</h5>
+                            <h8 class="card-header">Заявка № {{$request->id}}</h8>
+                            <h8 class="card-header">Категория: {{$request->category}}</h8>
+                            <h8 class="card-header">Статус заявки: {{$request->status}}</h8>
+                            @if($request->status == 'Выполнена')
+                                <h8 class="card-header">Ответ на заявку: {{$request->answer}}</h8>
+                            @endif
                             <p>{{$request->text}}</p>
                             <p>Дата создания : {{$request->created_at}}</p>
                             <div class="card-body">
@@ -22,7 +26,7 @@
                                         <a href="#" class="btn btn-primary mt-4">Оставить коментарий к заявке</a>
                                         <input type="text" class="form-control mt-4" placeholder="Комментарий к заявке">
                                     @endif
-                                    @if($user->hasRole('lawyer'))
+                                    @if($user->hasRole('lawyer') && !($request->status == "Выполнена"))
                                         <a href="{{ route('add_answer', $request->id) }}" class="btn btn-success mt-4">Ответить на заявку</a>
                                     @endif
                                 </form>
