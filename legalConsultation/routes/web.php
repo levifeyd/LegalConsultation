@@ -20,6 +20,6 @@ Route::middleware("auth")->group(function () {
 
     Route::get('add_answer/{id}',[\App\Http\Controllers\IndexController::class, 'addAnswer'])
         ->name('add_answer')->middleware('can:take-request');
-    Route::post('add_answer/{id}', [\App\Http\Controllers\RequestController::class, 'getAnswer'])
-        ->name("add_answer");
+    Route::post('get_answer/{id}', [\App\Http\Controllers\RequestController::class, 'getAnswer'])
+        ->name("get_answer");
 });

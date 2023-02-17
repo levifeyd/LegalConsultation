@@ -19,8 +19,9 @@ class IndexController extends Controller {
     }
     public function addAnswer($id) {
         $request = \App\Models\Request::query()->findOrFail($id);
-        return view('answer', [
-            'request'=>$request
+//        dd($request->id);
+        return view('answer')->with([
+            'request'=>$request,
         ]);
     }
 }

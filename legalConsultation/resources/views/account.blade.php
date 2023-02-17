@@ -23,7 +23,7 @@
                                         <input type="text" class="form-control mt-4" placeholder="Комментарий к заявке">
                                     @endif
                                     @if($user->hasRole('lawyer'))
-                                        <a href="{{ route('add_answer',$request->id) }}" class="btn btn-success mt-4">Ответить на заявку</a>
+                                        <a href="{{ route('add_answer', $request->id) }}" class="btn btn-success mt-4">Ответить на заявку</a>
                                     @endif
                                 </form>
                             </div>
