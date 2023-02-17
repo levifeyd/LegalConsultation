@@ -119,6 +119,7 @@
       <path value="$PROJECT_DIR$/legalConsultation/vendor/psr/http-factory" />
       <path value="$PROJECT_DIR$/legalConsultation/vendor/psr/http-client" />
       <path value="$PROJECT_DIR$/legalConsultation/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/legalConsultation/vendor/spatie/laravel-permission" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3" />

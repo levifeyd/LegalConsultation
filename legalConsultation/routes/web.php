@@ -17,4 +17,9 @@ Route::middleware("auth")->group(function () {
         ->name('create_new_request');
     Route::post('/add_new_request', [\App\Http\Controllers\RequestController::class, 'store'])
         ->name("add_new_request");
+
+    Route::get('add_answer/{id}',[\App\Http\Controllers\IndexController::class, 'addAnswer'])
+        ->name('add_answer')->middleware('can:take-request');
+    Route::post('add_answer/{id}', [\App\Http\Controllers\RequestController::class, 'getAnswer'])
+        ->name("add_answer");
 });

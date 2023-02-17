@@ -6,11 +6,11 @@
     <div class="sm:mb-0 self-center">
         @auth("web")
             <a href="{{route('logout')}}" class="text-md">Выйти</a>
+            <br>
+            <a href="{{ route('account') }}" class="text-indigo-600 hover:text-indigo-900">Мой кабинет</a>
         @endauth
         @guest("web")
             <a href="{{route('login')}}" class="text-md">Войти</a>
         @endguest
-            <br>
-            <a href="{{ route('account') }}" class="text-indigo-600 hover:text-indigo-900">Мой кабинет</a>
     </div>
 </nav>

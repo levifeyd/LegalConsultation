@@ -31,4 +31,15 @@ class RequestController extends Controller {
         \App\Models\Request::query()->create($input);
         return redirect()->back()->with('status','Post added!');
     }
+    public function getAnswer(Request $request, $id) {
+        $request->validate([
+            'text'=>'required'
+        ]);
+        $request = \App\Models\Request::query()->findOrFail($id);
+        $input = $request->all();
+        $input['answer'] = $request->text;
+        dd($input);
+
+        return redirect()->back()->with('status','Answer added!');
+    }
 }
