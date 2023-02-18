@@ -30,12 +30,26 @@ class RequestController extends Controller {
         \App\Models\Request::query()->create($input);
         return redirect()->back()->with('status','Post added!');
     }
-    public function update($id, Request $request) {
+    public function updateAnswer($id, Request $request) {
         $request->validate([
-            'text'=>'required'
+            'answer'=>'required'
         ]);
         $input = $request->all();
-        $req = \App\Models\Request::query()->where('id', $id)->update(['answer' => $input['text']]);
+        $req = \App\Models\Request::query()->where('id', $id)->update([
+            'answer' => $input['answer'],
+            'status'=>'В работе',
+            'lawyer_id'=> Auth::user()->id,
+        ]);
         return redirect()->back()->with('status','Answer added!');
+    }
+
+    public function updateComment($id, Request $request) {
+        $request->validate([
+            'comment'=>'required'
+        ]);
+        $input = $request->all();
+//        dd($input);
+        $req = \App\Models\Request::query()->where('id', $id)->update(['comment'=>$input['comment']]);
+        return redirect()->back()->with('status','Comment added!');
     }
 }

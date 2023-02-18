@@ -24,4 +24,16 @@ class IndexController extends Controller {
             'request'=>$request,
         ]);
     }
+    public function addComment($id) {
+        $request = \App\Models\Request::query()->findOrFail($id);
+//        dd($request);
+        return view('comment')->with([
+            'request' => $request,
+        ]);
+    }
+    public function completeRequest($id) {
+//        dd($id);
+        $request = \App\Models\Request::query()->where('id', $id)->update(['status'=>'Выполнена']);
+        return view('account')->with('status', 'Request completed');
+    }
 }

@@ -20,6 +20,14 @@ Route::middleware("auth")->group(function () {
 
     Route::get('add_answer/{id}',[\App\Http\Controllers\IndexController::class, 'addAnswer'])
         ->name('add_answer')->middleware('can:take-request');
-    Route::put('update/{id}', [\App\Http\Controllers\RequestController::class, 'update'])
-        ->name('update')->middleware('can:take-request');
+    Route::put('update_answer/{id}', [\App\Http\Controllers\RequestController::class, 'updateAnswer'])
+        ->name('update_answer')->middleware('can:take-request');
+
+    Route::get('add_comment/{id}',[\App\Http\Controllers\IndexController::class, 'addComment'])
+        ->name('add_comment')->middleware('can:add-comment');
+    Route::put('update/{id}', [\App\Http\Controllers\RequestController::class, 'updateComment'])
+        ->name('update_comment')->middleware('can:add-comment');
+
+    Route::get('complete_request/{id}', [\App\Http\Controllers\IndexController::class, 'completeRequest'])
+        ->name('complete_request');
 });
