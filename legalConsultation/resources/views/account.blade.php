@@ -10,6 +10,16 @@
                     @if($user->hasRole('user'))
                         <a href="{{ route('create_new_request') }}" class="btn btn-success mb-4">Добавить новую заявку</a>
                     @endif
+                    <p>Выбрать статус</p>
+                        <form method="get" action="{{ route('account') }}">
+{{--                            @csrf--}}
+                            <select name="status" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                <option value="Новая" selected>Новая</option>
+                                <option value="В работе">В работе</option>
+                                <option value="Выполнена">Выполнена</option>
+                            </select><br>
+                            <button type="submit" class="btn btn-primary mt-3">Выбрать фильтр</button>
+                        </form><br>
                     @foreach($requests as $request)
                         @if(($user->hasRole('lawyer')
                             && (($request->lawyer_id == $user->id) || $request->status == 'Новая'))
@@ -42,7 +52,11 @@
                             </div>
                         @endif
                     @endforeach
-                </div>
+{{--                    <div>--}}
+{{--                        {{$requests->withQueryString()->links()}}--}}
+{{--                    </div>--}}
+{{--                        <script src="../js/app.js"></script>--}}
+{{--                </div>--}}
             </div>
         </div>
     </div>
