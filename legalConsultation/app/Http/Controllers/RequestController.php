@@ -24,11 +24,11 @@ class RequestController extends Controller {
         ]);
 
         $input = $request->all();
-        $input['status'] ='new request';
+        $input['status'] = 'Новая';
         $input['user_id'] = Auth::user()->id;
 
         \App\Models\Request::query()->create($input);
-        return redirect()->back()->with('status','Post added!');
+        return redirect()->back()->with('status','Заявка принята!');
     }
     public function updateAnswer($id, Request $request) {
         $request->validate([
@@ -40,7 +40,7 @@ class RequestController extends Controller {
             'status'=>'В работе',
             'lawyer_id'=> Auth::user()->id,
         ]);
-        return redirect()->back()->with('status','Answer added!');
+        return redirect()->back()->with('status','Ответ на заявку принят!');
     }
 
     public function updateComment($id, Request $request) {
@@ -50,6 +50,6 @@ class RequestController extends Controller {
         $input = $request->all();
 //        dd($input);
         $req = \App\Models\Request::query()->where('id', $id)->update(['comment'=>$input['comment']]);
-        return redirect()->back()->with('status','Comment added!');
+        return redirect()->back()->with('status','Комментарий добавлен!');
     }
 }
