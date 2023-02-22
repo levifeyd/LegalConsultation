@@ -1,4 +1,6 @@
 {
-    "/js/app.js": "/js/app.js",
+    "/resources/js/app.js": "/resources/js/app.js",
+    "/resources/js/filter.js": "/resources/js/filter.js",
+    "/resources/js/filter_id.js": "/resources/js/filter_id.js",
     "/css/app.css": "/css/app.css"
 }

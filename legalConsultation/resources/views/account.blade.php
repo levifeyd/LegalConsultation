@@ -1,7 +1,10 @@
 @extends('layout.app.app')
 @section('title', 'Статьи')
 @section('content')
-    @include('partials.header')
+@include('partials.header')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="resources/js/filter.js"></script>
+    <script src="resources/js/filter_id.js"></script>
     <div class="container mx-auto px-6 py-8">
         <h3 class="text-gray-700 text-3xl font-medium">Лента заявок</h3>
         <div class="container mt-6">
@@ -9,17 +12,22 @@
                 <div class="col-md-12">
                     @if($user->hasRole('user'))
                         <a href="{{ route('create_new_request') }}" class="btn btn-success mb-4">Добавить новую заявку</a>
+                    <div class="requests-controls">
+                        <button type="button" id="user_id_filter" value="{{$user->id}}" class="btn btn-success mb-4">Показать только мои заявки</button>
+                    </div>
                     @endif
-                    <p>Выбрать статус</p>
-                        <form method="get" action="{{ route('account') }}">
-{{--                            @csrf--}}
-                            <select name="status" class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                <option value="Новая" selected>Новая</option>
-                                <option value="В работе">В работе</option>
-                                <option value="Выполнена">Выполнена</option>
-                            </select><br>
-                            <button type="submit" class="btn btn-primary mt-3">Выбрать фильтр</button>
-                        </form><br>
+                    @if($user->hasRole('lawyer'))
+                    <div class="filter-controls">
+                        <label for="status-filter">Выбрать статус:</label>
+                        <select id="status-filter">
+                            <option value="Все" selected>Все</option>
+                            <option value="Новая">Новая</option>
+                            <option value="В работе">В работе</option>
+                            <option value="Выполнена">Выполнена</option>
+                        </select>
+                    </div>
+                    @endif
+                    <ul id="requests-list">
                     @foreach($requests as $request)
                         @if(($user->hasRole('lawyer')
                             && (($request->lawyer_id == $user->id) || $request->status == 'Новая'))
@@ -52,11 +60,8 @@
                             </div>
                         @endif
                     @endforeach
-{{--                    <div>--}}
-{{--                        {{$requests->withQueryString()->links()}}--}}
-{{--                    </div>--}}
-{{--                        <script src="../js/app.js"></script>--}}
-{{--                </div>--}}
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

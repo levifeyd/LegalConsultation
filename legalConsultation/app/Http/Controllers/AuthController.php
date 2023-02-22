@@ -16,7 +16,6 @@ class AuthController extends Controller
             "password"=>["required"],
         ]);
 
-        //пробуем авторизовать юзера
         if (auth("web")->attempt($data)) {
             return redirect(route('account'));
         }

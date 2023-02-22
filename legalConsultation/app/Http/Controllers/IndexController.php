@@ -7,11 +7,41 @@ use App\Models\User;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller {
+
+    public function filter(Request $request) {
+        $status = $request->input('status');
+
+        if ($status && $status != 'Все') {
+            $requests = \App\Models\Request::where('status', $status)->get();
+        } else {
+            $requests = \App\Models\Request::all();
+        }
+        $user = auth()->user();
+
+        return view('account', [
+            'requests' => $requests,
+            'user'=> $user,
+        ]);
+    }
+    public function filter_id(Request $request) {
+        $user_id = $request->input('user_id');
+
+        if ($user_id) {
+            $requests = \App\Models\Request::where('user_id', $user_id)->get();
+        } else {
+            $requests = \App\Models\Request::all();
+        }
+        $user = auth()->user();
+
+        return view('account', [
+            'requests' => $requests,
+            'user'=> $user,
+        ]);
+    }
     public function index() {
         return view('welcome');
     }
     public function account(RequestFilter $request) {
-//        $requests = \App\Models\Request::query()->orderBy("created_at", "desc")->get();
         $requests = \App\Models\Request::filter($request)->orderBy("created_at", "desc")->get();
         $user = auth()->user();
         return view('account')->with([
@@ -22,20 +52,17 @@ class IndexController extends Controller {
 
     public function addAnswer($id) {
         $request = \App\Models\Request::query()->findOrFail($id);
-//        dd($request->id);
         return view('answer')->with([
             'request'=>$request,
         ]);
     }
     public function addComment($id) {
         $request = \App\Models\Request::query()->findOrFail($id);
-//        dd($request);
         return view('comment')->with([
             'request' => $request,
         ]);
     }
     public function completeRequest($id) {
-//        dd($id);
         $request = \App\Models\Request::query()->where('id', $id)->update(['status'=>'Выполнена']);
         return view('account')->with('status', 'Request completed');
     }

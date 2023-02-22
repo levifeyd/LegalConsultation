@@ -5,8 +5,7 @@ namespace App\Filters;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
-class QueryFilter
-{
+class QueryFilter {
     public $request;
     protected $builder;
     protected $delimiter = ',';
@@ -17,7 +16,7 @@ class QueryFilter
     }
 
     public function filters()
-    {
+    { // вывод всех фильтров в виде мапы
         return $this->request->query();
     }
 

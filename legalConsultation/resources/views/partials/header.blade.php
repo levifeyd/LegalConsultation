@@ -12,7 +12,7 @@
             <a href="{{route('logout')}}" class="btn btn-primary">Выйти</a>
         @endauth
         @guest("web")
-            <a href="{{route('login')}}" class="text-md">Войти</a>
+            <a href="{{route('login')}}" class="btn btn-primary">Войти</a>
         @endguest
     </div>
 </nav>

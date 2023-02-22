@@ -996,16 +996,6 @@ eval("window._ = __webpack_require__(/*! lodash */ \"./node_modules/lodash/lodas
 
 /***/ }),
 
-/***/ "./resources/js/filter.js":
-/*!********************************!*\
-  !*** ./resources/js/filter.js ***!
-  \********************************/
-/***/ (() => {
-
-eval("$(document).ready(function () {\n  $('status-filter').on('change', function () {\n    console.log('123');\n    var status = $(this).val();\n    $.ajax({\n      url: \"{{ route('requests.filter') }}\",\n      data: {\n        status: status\n      },\n      success: function success(data) {\n        $('#requests-lists').html(data);\n      }\n    });\n  });\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyIkIiwiZG9jdW1lbnQiLCJyZWFkeSIsIm9uIiwiY29uc29sZSIsImxvZyIsInN0YXR1cyIsInZhbCIsImFqYXgiLCJ1cmwiLCJkYXRhIiwic3VjY2VzcyIsImh0bWwiXSwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vcmVzb3VyY2VzL2pzL2ZpbHRlci5qcz84Y2EyIl0sInNvdXJjZXNDb250ZW50IjpbIiQoZG9jdW1lbnQpLnJlYWR5KGZ1bmN0aW9uICgpIHtcbiAgICAkKCdzdGF0dXMtZmlsdGVyJykub24oJ2NoYW5nZScsIGZ1bmN0aW9uICgpIHtcbiAgICAgICAgY29uc29sZS5sb2coJzEyMycpO1xuICAgICAgICBsZXQgc3RhdHVzID0gJCh0aGlzKS52YWwoKTtcbiAgICAgICAgJC5hamF4KHtcbiAgICAgICAgICAgIHVybDogXCJ7eyByb3V0ZSgncmVxdWVzdHMuZmlsdGVyJykgfX1cIixcbiAgICAgICAgICAgIGRhdGE6IHsgc3RhdHVzOiBzdGF0dXMgfSxcbiAgICAgICAgICAgIHN1Y2Nlc3M6IGZ1bmN0aW9uIChkYXRhKSB7XG4gICAgICAgICAgICAgICAgJCgnI3JlcXVlc3RzLWxpc3RzJykuaHRtbChkYXRhKTtcbiAgICAgICAgICAgIH1cbiAgICAgICAgfSk7XG4gICAgfSk7XG59KTtcbiJdLCJtYXBwaW5ncyI6IkFBQUFBLENBQUMsQ0FBQ0MsUUFBUSxDQUFDLENBQUNDLEtBQUssQ0FBQyxZQUFZO0VBQzFCRixDQUFDLENBQUMsZUFBZSxDQUFDLENBQUNHLEVBQUUsQ0FBQyxRQUFRLEVBQUUsWUFBWTtJQUN4Q0MsT0FBTyxDQUFDQyxHQUFHLENBQUMsS0FBSyxDQUFDO0lBQ2xCLElBQUlDLE1BQU0sR0FBR04sQ0FBQyxDQUFDLElBQUksQ0FBQyxDQUFDTyxHQUFHLEVBQUU7SUFDMUJQLENBQUMsQ0FBQ1EsSUFBSSxDQUFDO01BQ0hDLEdBQUcsRUFBRSxnQ0FBZ0M7TUFDckNDLElBQUksRUFBRTtRQUFFSixNQUFNLEVBQUVBO01BQU8sQ0FBQztNQUN4QkssT0FBTyxFQUFFLGlCQUFVRCxJQUFJLEVBQUU7UUFDckJWLENBQUMsQ0FBQyxpQkFBaUIsQ0FBQyxDQUFDWSxJQUFJLENBQUNGLElBQUksQ0FBQztNQUNuQztJQUNKLENBQUMsQ0FBQztFQUNOLENBQUMsQ0FBQztBQUNOLENBQUMsQ0FBQyIsImZpbGUiOiIuL3Jlc291cmNlcy9qcy9maWx0ZXIuanMuanMiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./resources/js/filter.js\n");
-
-/***/ }),
-
 /***/ "./node_modules/bootstrap/dist/js/bootstrap.esm.js":
 /*!*********************************************************!*\
   !*** ./node_modules/bootstrap/dist/js/bootstrap.esm.js ***!
@@ -1181,7 +1171,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
-/******/ 			"/js/app": 0,
+/******/ 			"/resources/js/app": 0,
 /******/ 			"css/app": 0
 /******/ 		};
 /******/ 		
@@ -1233,7 +1223,6 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
 /******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/js/filter.js")))
 /******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/sass/app.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
