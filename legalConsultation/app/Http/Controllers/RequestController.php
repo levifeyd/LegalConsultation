@@ -6,14 +6,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class RequestController extends Controller {
-    public function index()
-    {
+    public function index() {
         $posts = \App\Models\Request::query()->orderBy("created_at", "desc")->get();
         return view('dashboard', [
             'posts' => $posts,
         ]);
     }
-    public function create(){
+    public function create() {
         return view('requests.create_request');
     }
     public function store(Request $request) {
@@ -49,7 +48,6 @@ class RequestController extends Controller {
             'comment'=>'required'
         ]);
         $input = $request->all();
-//        dd($input);
         $req = \App\Models\Request::query()->where('id', $id)->update(['comment'=>$input['comment']]);
         return redirect()->back()->with('status','Комментарий добавлен!');
     }

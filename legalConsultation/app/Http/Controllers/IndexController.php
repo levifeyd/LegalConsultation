@@ -38,6 +38,27 @@ class IndexController extends Controller {
             'user'=> $user,
         ]);
     }
+
+    public function filter_date(Request $request) {
+        $dateFrom = $request->input('dateFrom');
+        $dateTo = $request->input('dateTo');
+
+        if($dateFrom && $dateTo) {
+            $requests = \App\Models\Request::query()
+                ->whereBetween('created_at', [$dateFrom, $dateTo])
+                ->get();
+
+        } else {
+            $requests = \App\Models\Request::all();
+        }
+        $user = auth()->user();
+
+
+        return view('account', [
+            'requests' => $requests,
+            'user'=> $user,
+        ]);
+    }
     public function index() {
         return view('welcome');
     }

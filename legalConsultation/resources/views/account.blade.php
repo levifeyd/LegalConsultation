@@ -12,6 +12,14 @@
                 <div class="col-md-12">
                     @if($user->hasRole('user'))
                         <a href="{{ route('create_new_request') }}" class="btn btn-success mb-4">Добавить новую заявку</a>
+                    <p>Выберите пероид даты заявке</p>
+                    <form method="post" action="{{ route('requests.filter_date') }}">
+                        @csrf
+                        <input name="dateFrom" type="text" class="w-full h-12" placeholder="Веедите дату с(2023-02-22 09:21:07)"/>
+                        <input name="dateTo" type="text" class="w-full h-12" placeholder="Веедите дату до (2023-03-22 22:21:07)"/>
+                        <button type="submit" class="btn btn-primary">Показать по дате</button>
+                    </form><br>
+
                     <div class="requests-controls">
                         <button type="button" id="user_id_filter" value="{{$user->id}}" class="btn btn-success mb-4">Показать только мои заявки</button>
                     </div>
