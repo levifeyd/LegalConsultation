@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Filters\RequestFilter;
-use App\Models\User;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller {
@@ -87,6 +85,6 @@ class IndexController extends Controller {
     }
     public function completeRequest($id) {
         $request = \App\Models\Request::query()->where('id', $id)->update(['status'=>'Выполнена']);
-        return view('account')->with('status', 'Request completed');
+        return view('account')->with('status', 'Заявка выполнена!');
     }
 }

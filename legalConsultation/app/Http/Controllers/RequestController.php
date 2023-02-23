@@ -20,12 +20,13 @@ class RequestController extends Controller {
         $request->validate([
             "category"=>'required',
             "text"=>'required',
-            "photo"=>'image',
         ]);
 
         $input = $request->all();
         $input['status'] = 'Новая';
-        $input['photo'] = str_replace("public/posts","",  $request->file("photo")->store("public/posts"));
+        if(isset($input['photo'])) {
+            $input['photo'] = str_replace("public/posts", "", $request->file("photo")->store("public/posts"));
+        }
         $input['user_id'] = Auth::user()->id;
 
         \App\Models\Request::query()->create($input);

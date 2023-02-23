@@ -5,6 +5,11 @@
     <div class="container mx-auto px-6 py-8">
         <h3 class="text-gray-700 text-3xl font-medium">Комментарий к заявке №{{ $request->id }}</h3>
         <div class="container mt-6">
+            @if(session('status'))
+                <div class="alert alert-success">
+                    {{session('status')}}
+                </div>
+            @endif
             <form method="POST" action="{{ route('update_comment', $request->id) }}">
                 @csrf
                 @method('PUT')
