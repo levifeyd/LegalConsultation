@@ -13,7 +13,8 @@ class RequestController extends Controller {
         ]);
     }
     public function create() {
-        return view('requests.create_request');
+        $user = Auth::user();
+        return view('requests.create_request', ['user'=>$user]);
     }
     public function store(Request $request) {
         $request->validate([

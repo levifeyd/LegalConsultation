@@ -6,7 +6,6 @@
                 {{ $user->name }}
             @endif
         !</h5>
-{{--    </div>--}}
         @auth("web")
             <a href="{{ route('account') }}" class="btn btn-primary">Мой кабинет</a>
             <a href="{{route('logout')}}" class="btn btn-primary">Выйти</a>
