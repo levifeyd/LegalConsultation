@@ -7,6 +7,18 @@ use App\Models\User;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller {
+    public function index() {
+        return view('welcome');
+    }
+
+    public function account(RequestFilter $request) {
+        $requests = \App\Models\Request::filter($request)->orderBy("created_at", "desc")->get();
+        $user = auth()->user();
+        return view('account')->with([
+            'requests'=>$requests,
+            'user'=>$user,
+        ]);
+    }
 
     public function filter(Request $request) {
         $status = $request->input('status');
@@ -59,17 +71,7 @@ class IndexController extends Controller {
             'user'=> $user,
         ]);
     }
-    public function index() {
-        return view('welcome');
-    }
-    public function account(RequestFilter $request) {
-        $requests = \App\Models\Request::filter($request)->orderBy("created_at", "desc")->get();
-        $user = auth()->user();
-        return view('account')->with([
-            'requests'=>$requests,
-            'user'=>$user,
-        ]);
-    }
+
 
     public function addAnswer($id) {
         $request = \App\Models\Request::query()->findOrFail($id);

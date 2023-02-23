@@ -35,7 +35,7 @@ class RequestController extends Controller {
             'answer'=>'required'
         ]);
         $input = $request->all();
-        $req = \App\Models\Request::query()->where('id', $id)->update([
+        \App\Models\Request::query()->where('id', $id)->update([
             'answer' => $input['answer'],
             'status'=>'В работе',
             'lawyer_id'=> Auth::user()->id,
@@ -48,7 +48,7 @@ class RequestController extends Controller {
             'comment'=>'required'
         ]);
         $input = $request->all();
-        $req = \App\Models\Request::query()->where('id', $id)->update(['comment'=>$input['comment']]);
+        \App\Models\Request::query()->where('id', $id)->update(['comment'=>$input['comment']]);
         return redirect()->back()->with('status','Комментарий добавлен!');
     }
 }

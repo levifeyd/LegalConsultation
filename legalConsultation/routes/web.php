@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',[\App\Http\Controllers\IndexController::class, 'index'])->name('home');
-Route::get('/account', [\App\Http\Controllers\IndexController::class, 'account'])->name('account');
+
 
 Route::middleware("guest")->group(function () {
     Route::get('/login',[\App\Http\Controllers\AuthController::class, 'showLoginForm'])->name('login');
@@ -11,6 +11,7 @@ Route::middleware("guest")->group(function () {
 });
 
 Route::middleware("auth")->group(function () {
+    Route::get('/account', [\App\Http\Controllers\IndexController::class, 'account'])->name('account');
     Route::get('/logout',[\App\Http\Controllers\AuthController::class, 'logout'])
         ->name('logout');
     Route::get('/create_new_request', [\App\Http\Controllers\RequestController::class, 'create'])
@@ -19,20 +20,23 @@ Route::middleware("auth")->group(function () {
         ->name("add_new_request");
 
     Route::get('add_answer/{id}',[\App\Http\Controllers\IndexController::class, 'addAnswer'])
-        ->name('add_answer')->middleware('can:take-request');
+        ->name('add_answer');
     Route::put('update_answer/{id}', [\App\Http\Controllers\RequestController::class, 'updateAnswer'])
-        ->name('update_answer')->middleware('can:take-request');
+        ->name('update_answer');
 
     Route::get('add_comment/{id}',[\App\Http\Controllers\IndexController::class, 'addComment'])
-        ->name('add_comment')->middleware('can:add-comment');
+        ->name('add_comment');
     Route::put('update/{id}', [\App\Http\Controllers\RequestController::class, 'updateComment'])
-        ->name('update_comment')->middleware('can:add-comment');
+        ->name('update_comment');
 
     Route::get('complete_request/{id}', [\App\Http\Controllers\IndexController::class, 'completeRequest'])
         ->name('complete_request');
 
-    Route::get('/requests/filter', [\App\Http\Controllers\IndexController::class, 'filter'])->name('requests.filter');
-    Route::get('/requests/filter_id', [\App\Http\Controllers\IndexController::class, 'filter_id'])->name('requests.filter_id');
-    Route::post('/account', [\App\Http\Controllers\IndexController::class, 'filter_date'])->name('requests.filter_date');
+    Route::get('/requests/filter', [\App\Http\Controllers\IndexController::class, 'filter'])
+        ->name('requests.filter');
+    Route::get('/requests/filter_id', [\App\Http\Controllers\IndexController::class, 'filter_id'])
+        ->name('requests.filter_id');
+    Route::post('/account', [\App\Http\Controllers\IndexController::class, 'filter_date'])
+        ->name('requests.filter_date');
 
 });
