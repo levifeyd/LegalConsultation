@@ -32,11 +32,11 @@ Route::middleware("auth")->group(function () {
     Route::get('complete_request/{id}', [\App\Http\Controllers\IndexController::class, 'completeRequest'])
         ->name('complete_request');
 
-    Route::get('/requests/filter', [\App\Http\Controllers\IndexController::class, 'filter'])
+    Route::get('/requests/filter', [\App\Http\Controllers\IndexController::class, 'filterStatus'])
         ->name('requests.filter');
-    Route::get('/requests/filter_id', [\App\Http\Controllers\IndexController::class, 'filter_id'])
+    Route::get('/requests/filter_id', [\App\Http\Controllers\IndexController::class, 'filterId'])
         ->name('requests.filter_id');
-    Route::post('/account', [\App\Http\Controllers\IndexController::class, 'filter_date'])
+    Route::post('/account', [\App\Http\Controllers\IndexController::class, 'filterDate'])
         ->name('requests.filter_date');
 
 });

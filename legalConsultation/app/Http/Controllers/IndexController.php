@@ -11,8 +11,8 @@ class IndexController extends Controller {
         return view('welcome');
     }
 
-    public function account(RequestFilter $request) {
-        $requests = \App\Models\Request::filter($request)->orderBy("created_at", "desc")->get();
+    public function account() {
+        $requests = \App\Models\Request::query()->orderBy("created_at", "desc")->get();
         $user = auth()->user();
         return view('account')->with([
             'requests'=>$requests,
@@ -20,7 +20,7 @@ class IndexController extends Controller {
         ]);
     }
 
-    public function filter(Request $request) {
+    public function filterStatus(Request $request) {
         $status = $request->input('status');
 
         if ($status && $status != 'Все') {
@@ -35,7 +35,7 @@ class IndexController extends Controller {
             'user'=> $user,
         ]);
     }
-    public function filter_id(Request $request) {
+    public function filterId(Request $request) {
         $user_id = $request->input('user_id');
 
         if ($user_id) {
@@ -51,7 +51,7 @@ class IndexController extends Controller {
         ]);
     }
 
-    public function filter_date(Request $request) {
+    public function filterDate(Request $request) {
         $dateFrom = $request->input('dateFrom');
         $dateTo = $request->input('dateTo');
 
