@@ -23,7 +23,4 @@ class Request extends Model {
      *
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeFilter(Builder $builder, QueryFilter $filter){
-        return $filter->apply($builder);
-    }
 }
