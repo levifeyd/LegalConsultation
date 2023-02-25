@@ -19,10 +19,15 @@ class CreateUserSeeder extends Seeder
     public function run()
     {
         $user = User::query()->create([
-            'name' => 'Polina',
-            'email' => 'Polina@mail.ru',
+            'name' => 'John',
+            'email' => 'john@mail.ru',
             'password' => bcrypt('qweasdzxc'),
         ]);
+//        $user = User::query()->create([
+//            'name' => 'Polina',
+//            'email' => 'Polina@mail.ru',
+//            'password' => bcrypt('qweasdzxc'),
+//        ]);
 //        $user = User::query()->create([
 //            'name' => 'LawyerJack',
 //            'email' => 'LawyerJack@mail.ru',
@@ -39,11 +44,11 @@ class CreateUserSeeder extends Seeder
 //            'password' => bcrypt('qweasdzxc'),
 //        ]);
 
-        Role::create([
-            'name'=>'user',
-            'created_at'=>Carbon::now(),
-            'updated_at'=>Carbon::now(),
-        ]);
+//        Role::create([
+//            'name'=>'user',
+//            'created_at'=>Carbon::now(),
+//            'updated_at'=>Carbon::now(),
+//        ]);
 
         $user->assignRole('user');
     }
