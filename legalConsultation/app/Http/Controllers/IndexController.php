@@ -52,18 +52,14 @@ class IndexController extends Controller {
     public function filterDate(Request $request) {
         $dateFrom = $request->input('dateFrom');
         $dateTo = $request->input('dateTo');
-
         if($dateFrom && $dateTo) {
             $requests = \App\Models\Request::query()
                 ->whereBetween('created_at', [$dateFrom, $dateTo])
                 ->get();
-
         } else {
             $requests = \App\Models\Request::all();
         }
         $user = auth()->user();
-
-
         return view('account', [
             'requests' => $requests,
             'user'=> $user,

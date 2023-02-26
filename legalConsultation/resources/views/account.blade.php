@@ -5,6 +5,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="resources/js/filter.js"></script>
     <script src="resources/js/filter_id.js"></script>
+    <script src="resources/js/filter_date.js"></script>
     <div class="container mx-auto px-6 py-8">
         <h3 class="text-gray-700 text-3xl font-medium">Лента заявок</h3>
         <div class="container mt-6">
@@ -21,7 +22,6 @@
                         <button type="button" id="dateFilter" class="btn btn-primary">Показать по дате</button>
                     </form><br>
                     </div>
-
                     <div class="requests-controls">
                         <button type="button" id="user_id_filter" value="{{$user->id}}" class="btn btn-success mb-4">Показать только мои заявки</button>
                     </div>
