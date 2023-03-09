@@ -36,8 +36,6 @@ Route::middleware("auth")->group(function () {
         ->name('requests.filter');
     Route::get('/requests/filter_id', [\App\Http\Controllers\IndexController::class, 'filterId'])
         ->name('requests.filter_id');
-//    Route::post('/account', [\App\Http\Controllers\IndexController::class, 'filterDate'])
-//        ->name('requests.filter_date');
     Route::get('/requests/filter_date', [\App\Http\Controllers\IndexController::class, 'filterDate'])
         ->name('requests.filter_date');
 
