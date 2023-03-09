@@ -4,25 +4,26 @@
 * Также есть фильтры(показать только свои заявки для роли 'user' и фильтр по статусу заявки для роли 'lawyer') использующие ajax запросы.
 * Регистрация отсутствует, пароли и логины(клиент, юрист) есть в файле CreateUserSeeder.php.
 # Авторизация
-![Auth view](screenshots/auth+reg_page.png)
-# Админ панель для роли "Юрист"
-![Main view](screenshots/admin_panel_page.png)
-# Админ панель для управления пользователями
-![Main view](screenshots/manage_user_admin_panel_page.png)
-# Админ панель для управления ролями пользователей
-![Main view](screenshots/manage_role_admin_panel_page.png)
-# Админ панель для управления отзывами
+![Auth view](screenshots/auth_page.png)
+# Панель для роли "Клиент"
+![Main view](screenshots/account_page_1.png)
+![Main view](screenshots/account_page_2.png)
+![Main view](screenshots/account_page_3.png)
+![Main view](screenshots/account_page_4.png)
+# Можно создать новую заявку указав категорию и написать текст заявки, также можно добавить изображение
+![Main view](screenshots/create_page_1.png)
+![Main view](screenshots/create_page_2.png)
+![Main view](screenshots/complete_!_create_page_3.png)
+# Так рабоатет фильтр по датам заявок
+![Main view](screenshots/filter_date_page_account_page_1.png)
+![Main view](screenshots/filter_date_page_account_page_2.png)
+# Так рабоатет фильтр "Показать только мои зявки"
+![Main view](screenshots/filter_only_my_page_account_page_1.png)
+![Main view](screenshots/filter_only_my_page_account_page_2.png)
+# Панель для роли "Клиент"
+![Main view](screenshots/lawyer_page.png)
+# Так можно применить фильтр по заявкам и указать нужную категорию заявок по статусу("новая", "выполена","в работе")
 ![Main view](screenshots/manage_feedback_admin_panel_page.png)
 ![Main view](screenshots/manage_feedback_admin_panel_page_2.png)
-# Создание нового пользователя
-![Main view](screenshots/create_user_page_2.png)
-# Создание новой роли
-![Main view](screenshots/create_role_page_1.png)
-# Создание нового отзыва
-![Main view](screenshots/create_feedback_page_1.png)
-# Панель для роли "Клиент"
-![Main view](screenshots/user_panel.png)
-# Панель для роли "Пользотваель" для создания отзыва
-![Main view](screenshots/user_feedback_panel.png)
-# Logout
-![Main view](screenshots/logout.png)
+#  Можно дать ответ на заявку
+![Main view](screenshots/take_req.png)
