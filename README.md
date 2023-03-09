@@ -23,7 +23,6 @@
 # Панель для роли "Клиент"
 ![Main view](screenshots/lawyer_page.png)
 # Так можно применить фильтр по заявкам и указать нужную категорию заявок по статусу("новая", "выполена","в работе")
-![Main view](screenshots/manage_feedback_admin_panel_page.png)
-![Main view](screenshots/manage_feedback_admin_panel_page_2.png)
+![Main view](screenshots/law_filter_new.png)
 #  Можно дать ответ на заявку
 ![Main view](screenshots/take_req.png)
