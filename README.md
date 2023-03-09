@@ -20,7 +20,7 @@
 # Так рабоатет фильтр "Показать только мои зявки"
 ![Main view](screenshots/filter_only_my_page_account_page_1.png)
 ![Main view](screenshots/filter_only_my_page_account_page_2.png)
-# Панель для роли "Клиент"
+# Панель для роли "Юрист"
 ![Main view](screenshots/lawyer_page.png)
 # Так можно применить фильтр по заявкам и указать нужную категорию заявок по статусу("новая", "выполена","в работе")
 ![Main view](screenshots/manage_feedback_admin_panel_page.png)
