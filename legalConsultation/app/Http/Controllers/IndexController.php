@@ -69,18 +69,28 @@ class IndexController extends Controller {
 
     public function addAnswer($id) {
         $request = \App\Models\Request::query()->findOrFail($id);
+        $user = auth()->user();
         return view('answer')->with([
             'request'=>$request,
+            'user'=> $user,
         ]);
     }
     public function addComment($id) {
         $request = \App\Models\Request::query()->findOrFail($id);
+        $user = auth()->user();
         return view('comment')->with([
             'request' => $request,
+            'user'=> $user,
         ]);
     }
     public function completeRequest($id) {
         $request = \App\Models\Request::query()->where('id', $id)->update(['status'=>'Выполнена']);
-        return view('account')->with('status', 'Заявка выполнена!');
+        $requests = \App\Models\Request::all();
+        $user = auth()->user();
+        return view('account')->with([
+            'status', 'Заявка выполнена!',
+            'requests' => $requests,
+            'user'=> $user,
+        ]);
     }
 }

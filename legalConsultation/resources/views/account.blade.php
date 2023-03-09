@@ -9,6 +9,11 @@
     <div class="container mx-auto px-6 py-8">
         <h3 class="text-gray-700 text-3xl font-medium">Лента заявок</h3>
         <div class="container mt-6">
+            @if(session('status'))
+                <div class="alert alert-success">
+                    {{session('status')}}
+                </div>
+            @endif
             <div class="row">
                 <div class="col-md-12">
                     @if($user->hasRole('user'))
@@ -39,8 +44,7 @@
                     @endif
                     <ul id="requests-list">
                     @foreach($requests as $request)
-                        @if(($user->hasRole('lawyer')
-                            && (($request->lawyer_id == $user->id) || $request->status == 'Новая'))
+                        @if(($user->hasRole('lawyer') && (($request->lawyer_id == $user->id) || $request->status == 'Новая'))
                             || $user->hasRole('user'))
                             <div class="card mb-4">
                                 <h8 class="card-header">Заявка № {{$request->id}}</h8>

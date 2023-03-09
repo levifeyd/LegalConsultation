@@ -17,6 +17,7 @@ class AuthController extends Controller {
 
         if (auth("web")->attempt($data)) {
             return redirect(route('account'));
+//            return view('account');
         }
 
         return redirect(route('login'))->withErrors(["email"=> "Пользотваель не найден,
